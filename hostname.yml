@@ -11,3 +11,4 @@
         dest=/etc/hosts
         regexp="^{{ ansible_default_ipv4.address }}.+$"
         line="{{ ansible_default_ipv4.address }} {{ ansible_fqdn }} {{ ansible_hostname }}"
+        backup=yes

@@ -17,6 +17,7 @@
         regexp=^SSLProtocol
         line="SSLProtocol all -SSLv2 -SSLv3"
         state=present
+        backup=yes
       when: modssl|success
       notify: restart apache
 
