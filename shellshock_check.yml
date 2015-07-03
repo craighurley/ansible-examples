@@ -1,0 +1,12 @@
+---
+- hosts: all
+  gather_facts: no
+  tasks:
+    - name: check for shellshock vulnerability
+      command: env x='() { :;}; echo vulnerable' bash -c "echo ok"
+      register: result
+      changed_when: false
+
+    - name: report shellshock status
+      debug: msg="{{ inventory_hostname }} is {{ result.stdout }}"
+      failed_when: '"vulnerable" in result.stdout'
