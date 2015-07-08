@@ -12,7 +12,7 @@ install:
 
 script:
   # Check the playbook's syntax.
-  - ansible-playbook -i inventory *.yml --syntax-check
+  - ansible-playbook *.yml -i .tests/inventory --syntax-check
   # TODO: once travis-ci includes an option to use CentOS, run the playbook for real.
 
 notifications:
